@@ -3,10 +3,19 @@ package de.uulm.sp.swt.statepattern;
 import java.util.List;
 
 public class AliveState implements State {
-
   @Override
   public State operation(List<State> neighbours) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'operation'");
+    int alive = 0;
+    for (var neighbour : neighbours) {
+      if (neighbour instanceof AliveState) {
+        alive++;
+      }
+    }
+
+    State nextState = this;
+    if (alive < 2 || alive > 3) {
+      nextState = new DeadState();
+    }
+    return nextState;
   }
 }
