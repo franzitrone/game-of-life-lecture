@@ -14,7 +14,7 @@ public class AliveState implements State {
 
     State nextState = this;
     if (alive < 2 || alive > 3) {
-      nextState = new DeadState();
+      nextState = new JustDeadState();
     }
     return nextState;
   }

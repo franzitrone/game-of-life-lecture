@@ -28,6 +28,8 @@ public class GOLCanvas extends Canvas {
         State cell = game.getCells().get(x, y);
         if (cell instanceof AliveState) {
           g.setColor(Color.BLACK);
+        } else if (cell instanceof JustDeadState) {
+          g.setColor(Color.LIGHT_GRAY);
         } else {
           g.setColor(Color.WHITE);
         }
